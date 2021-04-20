@@ -4,6 +4,7 @@ using System.Text;
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -21,7 +22,8 @@ namespace Business.Concrete
              _brandDal = brandDal;
          }
 
-         [ValidationAspect(typeof(BrandValidator))]
+        
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
            _brandDal.Add(brand);
